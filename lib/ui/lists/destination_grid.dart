@@ -11,7 +11,7 @@ class DestinationGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600,
+      height: 900,
       child: GridView.extent(
           maxCrossAxisExtent: 300.0,
           crossAxisSpacing: 20.0,

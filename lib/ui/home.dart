@@ -1,7 +1,11 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:the_project/ui/items/item_destination.dart';
+import 'package:the_project/ui/items/item_new_users.dart';
+import 'package:the_project/ui/items/item_notice.dart';
 import 'package:the_project/ui/lists/destination_grid.dart';
+import 'package:the_project/ui/lists/item_todays_pic.dart';
+import 'package:the_project/ui/lists/new_users_grid.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -237,7 +241,25 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
               ),
               SizedBox(height: 4,),
 
-              DestinationGrid()
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(child: DestinationGrid()),
+                  SizedBox(width: 12,),
+                  Column(
+                    children: [
+                      ItemNotice(),
+                      SizedBox(height: 16,),
+                      SizedBox(
+                          height: 300,
+                          child: ItemNewUsers()),
+                      SizedBox(height: 16,),
+                      SizedBox(height:230,child: ItemTodaysPick()),
+                      SizedBox(width: 8,)
+                    ],
+                  )
+                ],
+              )
             ],
           ),
         ),
