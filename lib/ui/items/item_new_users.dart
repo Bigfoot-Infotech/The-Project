@@ -19,7 +19,7 @@ class ItemNewUsers extends StatelessWidget {
         child: ClipRRect(
           borderRadius:BorderRadius.circular(12),
           child: Container(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.all(4),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -28,9 +28,9 @@ class ItemNewUsers extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height:8,width: 8,),
+                    SizedBox(width: 8,),
                     Icon(Icons.airplanemode_active_rounded,color: Colors.blue,size: 16,),
-                    SizedBox(height:8,width: 8,),
+                    SizedBox(width: 8,),
                     Text(
                       "Travelling today (21)",
                       style: TextStyle(
@@ -38,7 +38,6 @@ class ItemNewUsers extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 2,),
                 Divider(),
                 NewUsersGrid()
 

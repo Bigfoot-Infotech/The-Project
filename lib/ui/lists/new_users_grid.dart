@@ -19,12 +19,25 @@ class NewUsersGrid extends StatelessWidget {
           maxCrossAxisExtent: 60.0,
           crossAxisSpacing: 5.0,
           mainAxisSpacing: 5.0,
-          children: elements.map((el) => CircularProfileAvatar('images/splash.jpg',
-            borderColor: Colors.blue,
-            borderWidth: 2,
-            elevation: 2,
-            radius: 50,
-         )
+          children: elements.map((el) =>   Container(
+            width: 28,
+            height: 28,
+            decoration: BoxDecoration(
+              color: Colors.green.withOpacity(0.25), // border color
+              shape: BoxShape.circle,
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(2), // border width
+              child: Container( // or ClipRRect if you need to clip the content
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image:DecorationImage(image: AssetImage("images/splash.jpg"),
+                  fit: BoxFit.cover), // inner circle color
+                ),
+                child: Container(), // inner content
+              ),
+            ),
+          ),
           ).toList()
       ),
     );
