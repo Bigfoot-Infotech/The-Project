@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:the_project/ui/home.dart';
+import 'package:the_project/ui/screens/destination_detail.dart';
+import 'package:the_project/ui/screens/home.dart';
 import 'package:flutter/gestures.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       home: HomeScreen(),
       routes: {
         HomeScreen.routeName: (ctx) => HomeScreen(),
+        DestinationDetailScreen.routeName : (ctx) => DestinationDetailScreen(),
       },
     );
   }
