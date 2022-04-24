@@ -6,6 +6,9 @@ import 'package:the_project/ui/items/item_notice.dart';
 import 'package:the_project/ui/lists/destination_grid.dart';
 import 'package:the_project/ui/lists/item_todays_pic.dart';
 import 'package:the_project/ui/lists/new_users_grid.dart';
+import 'package:the_project/ui/widgets/video_player.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+
 
 
 class HomeScreen extends StatefulWidget {
@@ -29,6 +32,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
       super.initState();
    }
 
+   int _current=0;
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,13 +46,34 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
               SliverAppBar(
                 pinned: false,
                 flexibleSpace: FlexibleSpaceBar(
-                  background: Container(height: 400,
-                    width: double.infinity,
-                    color: Colors.black,
-                    child:Icon(Icons.play_arrow,size: 75,color: Colors.white,),
-                  ),
+                  background: Column(
+                    children: [
+                      Container(
+                          height: 470,
+                          child: CarouselSlider(
+                            options: CarouselOptions(height: 470.0,autoPlay: true,
+                            onPageChanged: (i,index){
+                              setState(() {
+                                _current = i;
+                              });
+                            }),
+                            items: [1,2,3,4,5].map((i) {
+                              return Builder(
+                                builder: (BuildContext context) {
+                                  return Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      decoration: BoxDecoration(
+                                          color: Colors.amber
+                                      ),
+                                      child: Image.asset('images/splash.jpg',fit: BoxFit.cover,)
+                                  );
+                                },
+                              );
+                            }).toList(),
+                          )),
+                  ])
                 ),
-                expandedHeight: 400,
+                expandedHeight: 470,
               )
             ];
           },
